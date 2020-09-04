@@ -1,0 +1,37 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace leetcode
+{
+    class Program
+    {
+        public static void Main(string[] args)  
+        {
+            int[] n = {17,18,5,4,6,1};
+            int[] result = ReplaceElements(n);
+            Console.WriteLine(result);
+        }
+
+        public static int[] ReplaceElements(int[] arr) {
+            
+            for(int i = 0; i< arr.Length;i++){
+                for(int j = i+1; j<arr.Length;j++){
+                    if(arr[i]< arr[j]){
+                        arr[i] = arr[j];
+                        break;
+                    }
+                    else if(arr[i] > arr[j]){
+                        j++;
+                        break;
+                    }
+                }
+                Console.WriteLine(arr[i]);
+            }
+            
+            return arr;
+        }   
+    }
+}

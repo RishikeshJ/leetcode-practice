@@ -1,0 +1,35 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace leetcode
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            // int[] nums = {1,2,3,4};
+            // int n = 5;
+            // int start = 0;
+            //string s = "aaiougrt";
+            int[] nums = {1,2,3,4,0};
+            int[] index = {0,1,2,3,0};
+
+            int[] result = CreateTargetArray(nums,index);
+ 
+        }
+
+        public static int[] CreateTargetArray(int[] nums, int[] index) {
+            var res = new List<int>();
+            for(int k=0; k<nums.Length; k++){
+                res.Insert(index[k],nums[k]);
+                Console.WriteLine(res[k]);
+            }
+
+            return res.ToArray();
+        }
+    }
+}
+

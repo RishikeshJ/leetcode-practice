@@ -1,0 +1,68 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+namespace leetcode
+{
+    class Program
+    {
+        public static void Main(string[] args)  
+        {
+            string s = "10#11#12";
+            string res = FreqAlphabets(s);
+            Console.WriteLine(res);
+        } 
+
+        public static string FreqAlphabets(string s) {
+        Dictionary<string, char> dict = new Dictionary<string, char>();
+        Stack<char> stack = new Stack<char>();
+        StringBuilder builder = new StringBuilder();
+
+        dict.Add("1", 'a');
+        dict.Add("2", 'b');
+        dict.Add("3", 'c');
+        dict.Add("4", 'd');
+        dict.Add("5", 'e');
+        dict.Add("6", 'f');
+        dict.Add("7", 'g');
+        dict.Add("8", 'h');
+        dict.Add("9", 'i');
+        dict.Add("10#", 'j');
+        dict.Add("11#", 'k');
+        dict.Add("12#", 'l');
+        dict.Add("13#", 'm');
+        dict.Add("14#", 'n');
+        dict.Add("15#", 'o');
+        dict.Add("16#", 'p');
+        dict.Add("17#", 'q');
+        dict.Add("18#", 'r');
+        dict.Add("19#", 's');
+        dict.Add("20#", 't');
+        dict.Add("21#", 'u');
+        dict.Add("22#", 'v');
+        dict.Add("23#", 'w');
+        dict.Add("24#", 'x');
+        dict.Add("25#", 'y');
+        dict.Add("26#", 'z');
+
+        for (int i = s.Length - 1; i >= 0; i--)
+            if (s[i] == '#')
+            {
+                stack.Push(dict[s.Substring(i - 2, 3)]);
+                i = i - 2;
+            }
+            else
+                stack.Push(dict[s[i].ToString()]);
+
+        while (stack.Count != 0)
+            builder.Append(stack.Pop());
+
+        return builder.ToString();
+    }
+
+
+       
+    }
+
+}

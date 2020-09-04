@@ -1,0 +1,50 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+
+//Problem:
+// Given an array A of non-negative integers, return an array consisting of all the even elements of A, 
+// followed by all the odd elements of A.
+
+// You may return any answer array that satisfies this condition.
+
+namespace leetcode
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+
+            int[] nums = {3,1,2,4};
+            // int[] index = {0,1,2,3,0};
+
+            int[] result = SortArrayByParity(nums);
+ 
+        }
+        public static int[] SortArrayByParity(int[] A) {
+            List<int> resultEvenList = new List<int>();
+            List<int> resultOddList = new List<int>();
+            List<int> finalList = new List<int>();
+
+            foreach(int no in A){
+                if(no % 2 == 0){
+                    resultEvenList.Add(no);
+                } else if(no % 2 != 0){
+                    resultOddList.Add(no);
+                }
+            }
+
+            finalList = resultEvenList.Concat(resultOddList).ToList();
+
+            foreach(var elem in finalList){
+                Console.WriteLine(elem);
+            }
+
+            return A;
+        }
+    }
+}
+

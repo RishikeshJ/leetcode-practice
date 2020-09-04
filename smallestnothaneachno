@@ -1,0 +1,60 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+//Problem: 
+// Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. 
+// That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
+
+// Return the answer in an array.
+
+namespace leetcode
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+
+            // int n = 5;
+            // int start = 0;
+            //string s = "aaiougrt";
+            int[] nums = {8,1,2,2,3};
+            // int[] index = {0,1,2,3,0};
+
+            int[] resulta = SmallerNumbersThanCurrent(nums);
+
+
+            
+        }
+
+        public static int[] SmallerNumbersThanCurrent(int[] nums) {
+            List<int> numbers = new List<int>();
+            
+            int count = 0;
+
+            Array.Sort(nums);
+
+            for(int i = 1; i< nums.Length;i++){
+                if(nums[i] == nums[i-1])
+                {
+                    count -= count;
+                    numbers.Add(count);
+                    numbers.Add(count);
+
+                }
+                else{
+                    numbers.Add(i);
+                }
+            }
+
+            foreach(var val in numbers){
+                Console.WriteLine(val);
+            }
+
+            return nums;
+        }
+    }
+}
+

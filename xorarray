@@ -1,0 +1,38 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace leetcode
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            // int[] nums = {1,2,3,4};
+            int n = 5;
+            int start = 0;
+            //string s = "aaiougrt";
+            //int[] indices = {4,0,2,6,7,3,1,5};
+            int result = XorOperation(n,start);
+ 
+        }
+
+        public static int XorOperation(int n, int start) {
+            int res = 0;
+            int[] resarray = new int[n];
+            for(int i = 0 ; i < n ; i++){
+                resarray[i] = start + 2*i;
+            }
+
+            for(int k = 0 ; k < n ; k++){
+                res = res ^ resarray[k];
+                //Console.WriteLine(resarray[k]);
+            }
+            Console.WriteLine(res);
+            return res;
+        }
+    }
+}
+

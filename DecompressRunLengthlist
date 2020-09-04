@@ -1,0 +1,60 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+//Problem: 
+// We are given a list nums of integers representing a list compressed with run-length encoding.
+
+// Consider each adjacent pair of elements [freq, val] = [nums[2*i], nums[2*i+1]] (with i >= 0).  
+// For each such pair, there are freq elements with value val concatenated in a sublist.
+//  Concatenate all the sublists from left to right to generate the decompressed list.
+
+// Return the decompressed list.
+
+namespace leetcode
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+
+            // int n = 5;
+            // int start = 0;
+            //string s = "aaiougrt";
+            int[] nums = {15,44,10,15};
+            int[] resulta = DecompressRLElist(nums);
+
+            // foreach(var elem in resulta){
+            //     Console.WriteLine(elem);
+            // }
+        }
+
+        public static int[] DecompressRLElist(int[] nums) {
+            List<int> finalList = new List<int>();
+            int val = 0;
+            int freq = 0;
+            int[] finalarr = new int[nums.Length];
+            for(int i = 1 ; i < nums.Length ; i++){
+                val = nums[i];
+                freq = nums[i-1];
+                 for(int k = 1; k<freq ; k++){
+                finalList.Add(val);
+            }
+                i++;
+                // Console.WriteLine(i);
+                // Console.WriteLine(val);
+            }
+
+           
+
+            foreach(var elem in finalList){
+                Console.WriteLine(elem);
+            }
+
+            return finalList.ToArray();
+        }
+    }
+}
+

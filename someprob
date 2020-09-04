@@ -1,0 +1,51 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace leetcode
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            // int[] nums = {1,2,3,4};
+            // int n = 5;
+            // int start = 0;
+            //string s = "aaiougrt";
+            int[] nums = {1,2,3,4,0};
+            int[] index = {0,1,2,3,0};
+
+            int result = NumIdenticalPairs(nums);
+ 
+        }
+
+        public static int NumIdenticalPairs(int[] nums) {
+            int res = 0;
+            int[] tmp = {nums.Length};
+
+            for(int i = 0; i < nums.Length ; i++){
+                for(int j = i+1; j < nums.Length ; j++){
+                    if(nums[i] == nums[j]){
+
+                        Console.WriteLine(nums[i]);
+                        Console.WriteLine(nums[j]);
+                        tmp.Append(nums[i]);
+                        tmp.Append(nums[j]);
+                    }
+                }
+            }
+
+            for(int k = 0 ; k < tmp.Length ; k++){
+                //Console.WriteLine(tmp[k]);
+            }
+
+
+        res = nums.Length;
+        //Console.WriteLine(res);
+         return res;   
+        }
+    }
+}
+

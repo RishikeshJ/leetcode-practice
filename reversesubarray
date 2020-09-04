@@ -1,0 +1,46 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+
+//Problem:
+// Make Two Arrays Equal by Reversing Sub-arrays.
+
+namespace leetcode
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+
+            int[] nums = {1,2,2,3};
+            int[] target = {1,1,2,3};
+            // int[] index = {0,1,2,3,0};
+
+            bool result = CanBeEqual(target,nums);
+ 
+        }
+        public static bool CanBeEqual(int[] target, int[] arr) {
+            bool res = false;
+            Array.Sort(target);
+            Array.Sort(arr);
+            
+            for(int i = 0 ; i < target.Length ; i++){
+                if(arr[i] == target[i]){
+
+                    res = true;
+                }
+                else{
+
+                }
+            }
+
+            Console.WriteLine(res);
+
+            return false;
+        }
+    }
+}
+
