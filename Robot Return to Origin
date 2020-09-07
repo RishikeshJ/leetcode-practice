@@ -1,0 +1,46 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+
+//Problem:
+// Make Two Arrays Equal by Reversing Sub-arrays.
+
+namespace leetcode
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+
+            //int[] nums = {1,2,2,1,1,3};
+            string moves= "LL";
+            // int[] index = {0,1,2,3,0};
+
+            bool result = JudgeCircle(moves);
+            Console.WriteLine(result);
+ 
+        }
+        public static bool JudgeCircle(string moves) {
+            char[] movesArr = moves.ToCharArray();
+            int x =0 , y = 0;
+            foreach(var move in movesArr){
+                if(move == 'U'){
+                    x++;
+                }else if(move == 'D'){
+                    x--;
+                }else if(move == 'L'){
+                    y++;
+                }else if(move == 'R'){
+                    y--;
+                }
+            }
+
+
+            return x == 0 && y == 0 ;
+        }
+    }
+}
+

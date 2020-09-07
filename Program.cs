@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
-//Problem:
-// Make Two Arrays Equal by Reversing Sub-arrays.
+//Problem: 
+//https://leetcode.com/problems/minimum-subsequence-in-non-increasing-order/
 
 namespace leetcode
 {
@@ -14,34 +13,31 @@ namespace leetcode
     {
         public static void Main(string[] args)
         {
-
-            int[] nums = {-4,-1,0,3,10};
-            int[] target = {1,1,2,3};
-            // int[] index = {0,1,2,3,0};
-
-            int[] result = SortedSquares(nums);
- 
-        }
-        public static int[] SortedSquares(int[] A) {
-            List<int> finalList = new List<int>();
-            foreach(var item in A){
-                finalList.Add(item*item);
-            }        
-            A = finalList.ToArray();
-            Array.Sort(A);
-
-            foreach(var lol in finalList){
-                Console.WriteLine(lol);
+            // int[] number = {4,3,10,9,8};
+            string[] s = {"900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org" };
+            IList<string> test = SubdomainVisits(s);
+            foreach(var item in test){
+                Console.WriteLine(item);
             }
-            return A;     
+        }
 
-            // Faster
-            // for(int i = 0 ; i < A.Length ; i++){
-            //     A[i] = A[i] * A[i];
-            // }
-            // Array.Sort(A);
+        public static IList<string> SubdomainVisits(string[] cpdomains) {
+            List<string> finalList = new List<string>();
+            List<string> subdomainList = new List<string>();
 
-            // return A;
+            Dictionary<string,int> keyvaldict = new System.Collections.Generic.Dictionary<string, int>();
+            foreach(var item in cpdomains){
+                item.Replace(',',' ');
+                string[] splitArr = item.Split(' ');
+                keyvaldict.Add(splitArr[1],int.Parse(splitArr[0]));
+            }
+
+
+            foreach(var thing in keyvaldict){
+                Console.WriteLine(thing);
+            }
+            return finalList;
+                
         }
     }
 }

@@ -1,0 +1,46 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+//Problem: 
+//https://leetcode.com/problems/minimum-subsequence-in-non-increasing-order/
+
+namespace leetcode
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            int[] number = {4,3,10,9,8};
+            // string s = "Let's take LeetCode contest";
+            IList<int> test = MinSubsequence(number);
+            foreach(var item in test){
+                Console.WriteLine(item);
+            }
+        }
+
+        public static IList<int> MinSubsequence(int[] nums) {
+        List<int> results = new List<int>();
+        int totalSum = nums.Sum();
+        int currentSum = 0;
+        Array.Sort(nums);
+       
+        for(int j=nums.Length-1;j>=0;j--)
+        {
+            currentSum += nums[j];
+            if(currentSum > (totalSum- currentSum))
+            {
+                while(j<= nums.Length-1)
+                    results.Insert(0,nums[j++]);
+                
+                return results.ToArray();
+            }
+        }
+        
+        return results.ToArray();
+        }
+    }
+}
+

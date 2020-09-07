@@ -1,0 +1,40 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+//Problem: 
+//https://leetcode.com/problems/reverse-words-in-a-string-iii/
+
+namespace leetcode
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            string s = "Let's take LeetCode contest";
+            ReverseWords(s);
+        }
+
+        public static string ReverseWords(string s) {
+            
+            
+            string[] words = s.Split(' ');
+            List<char> finlist = new List<char>();
+
+            foreach(var item in words){
+                char[] res = item.ToCharArray();
+                Array.Reverse(res);
+                foreach(var thing in res){
+                    finlist.Add(thing);
+                }
+                finlist.Add(' ');
+            }
+
+            string result = new string(finlist.ToArray());
+            return result.Trim();
+        }
+    }
+}
+
